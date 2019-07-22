@@ -208,7 +208,8 @@
             ' fa fa-binoculars';
     </script>
     <script>
-        $table = $('#sidebar table>tbody');
+        // $table = $('#sidebar table>tbody');
+        $table = $('#dataTable');
         $col_to_show = ['Full_Name', 'Titles', 'Birth', 'Death']
 
         // table header
@@ -224,18 +225,21 @@
 
             }
         }
-
+        // $data_table = [];
+        // layer_Notables_1.eachLayer(function(layer) {
+        //     $data = [];
+        //     for (const key in $col_to_show) {
+        //         if (layer.feature.properties.hasOwnProperty($col_to_show[key])) {
+        //             const element = layer.feature.properties[$col_to_show[key]];
+        //             $data.push(element);
+        //         }
+        //     }
+        //     $data_table.unshift($data);
+        //     // debugger;
+        //     // $data_table.push(layer.feature.properties);
+        // });
         // table body
-        $data_table = [];
-        layer_Notables_1.eachLayer(function(layer) {
-            for (const key in $col_to_show) {
-                if (layer.feature.properties.hasOwnProperty($col_to_show[key])) {
-                    const element = layer.feature.properties[$col_to_show[key]];
-                    $data_table.push(element);
-                }
-            }
-            // $data_table.push(layer.feature.properties);
-        });
+
         layer_Notables_1.eachLayer(function(layer) {
             // console.log(layer);
 
@@ -253,13 +257,13 @@
             }
             // debugger;
         });
-        debugger;
-        $('#datatable').DataTable({
-            data: $data_table,
-            columns: [{
-                title: "Full_Name"
-            }]
-        });
+        // debugger;
+        // $('#dataTable').DataTable({
+        //     data: $data_table,
+        //     columns: [{
+        //         title: "Full_Name"
+        //     }]
+        // });
     </script>
 </body>
 
