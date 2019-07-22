@@ -36,6 +36,9 @@
     <script src="js/labels.js"></script>
     <script src="js/leaflet-search.js"></script>
     <script src="data/Notables_1.js"></script>
+
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise"></script>
+    <script src="js/leaflet-bing-layer.min.js"></script>
     <style>
         #map {
             width: 100%;
@@ -114,6 +117,9 @@
         });
         layer_OSMStandard_0;
         map.addLayer(layer_OSMStandard_0);
+
+        var BING_KEY = 'AuhiCJHlGzhg93IqUH_oCpl_-ZUrIE6SPftlyGYUvr9Amx5nzA-WqGcPquyFZl4L';
+        var bingLayer = L.tileLayer.bing(BING_KEY).addTo(map);
 
         function pop_Notables_1(feature, layer) {
             layer.on({
@@ -204,6 +210,14 @@
             hideMarkerOnCollapse: true,
             propertyName: 'Full_Name'
         }));
+        var baseLayers = {
+            "Bing": bingLayer,
+            "OpenStreetMap": layer_OSMStandard_0
+        };
+        var overlays = {
+            "Marker": layer_Notables_1,
+        };
+        L.control.layers(baseLayers, overlays).addTo(map);
         document.getElementsByClassName('search-button')[0].className +=
             ' fa fa-binoculars';
     </script>
@@ -212,19 +226,6 @@
         $table = $('#dataTable');
         $col_to_show = ['Full_Name', 'Titles', 'Birth', 'Death']
 
-        // // table header
-        // let $row = $('<tr>');
-        // $table.append($row);
-
-        // for (const key in $col_to_show) {
-        //     if ($col_to_show.hasOwnProperty(key)) {
-        //         const element = $col_to_show[key];
-        //         $col = $('<th>');
-        //         $col.html(element);
-        //         $row.append($col);
-
-        //     }
-        // }
         $data_table = [];
         layer_Notables_1.eachLayer(function(layer) {
             $data = [];
@@ -238,26 +239,6 @@
             // debugger;
             // $data_table.push(layer.feature.properties);
         });
-        // table body
-
-        // layer_Notables_1.eachLayer(function(layer) {
-        //     // console.log(layer);
-
-        //     let $row = $('<tr>');
-        //     $table.append($row);
-
-        //     for (const key in $col_to_show) {
-        //         if (layer.feature.properties.hasOwnProperty($col_to_show[key])) {
-        //             const element = layer.feature.properties[$col_to_show[key]];
-        //             $col = $('<td>');
-        //             $col.html(element);
-        //             $row.append($col);
-        //             // debugger;
-        //         }
-        //     }
-        //     // debugger;
-        // });
-        // debugger;
         $('#dataTable').DataTable({
             data: $data_table,
             columns: [{
