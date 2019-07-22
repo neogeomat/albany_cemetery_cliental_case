@@ -212,58 +212,64 @@
         $table = $('#dataTable');
         $col_to_show = ['Full_Name', 'Titles', 'Birth', 'Death']
 
-        // table header
-        let $row = $('<tr>');
-        $table.append($row);
+        // // table header
+        // let $row = $('<tr>');
+        // $table.append($row);
 
-        for (const key in $col_to_show) {
-            if ($col_to_show.hasOwnProperty(key)) {
-                const element = $col_to_show[key];
-                $col = $('<th>');
-                $col.html(element);
-                $row.append($col);
+        // for (const key in $col_to_show) {
+        //     if ($col_to_show.hasOwnProperty(key)) {
+        //         const element = $col_to_show[key];
+        //         $col = $('<th>');
+        //         $col.html(element);
+        //         $row.append($col);
 
-            }
-        }
-        // $data_table = [];
-        // layer_Notables_1.eachLayer(function(layer) {
-        //     $data = [];
-        //     for (const key in $col_to_show) {
-        //         if (layer.feature.properties.hasOwnProperty($col_to_show[key])) {
-        //             const element = layer.feature.properties[$col_to_show[key]];
-        //             $data.push(element);
-        //         }
         //     }
-        //     $data_table.unshift($data);
-        //     // debugger;
-        //     // $data_table.push(layer.feature.properties);
-        // });
-        // table body
-
+        // }
+        $data_table = [];
         layer_Notables_1.eachLayer(function(layer) {
-            // console.log(layer);
-
-            let $row = $('<tr>');
-            $table.append($row);
-
+            $data = [];
             for (const key in $col_to_show) {
                 if (layer.feature.properties.hasOwnProperty($col_to_show[key])) {
                     const element = layer.feature.properties[$col_to_show[key]];
-                    $col = $('<td>');
-                    $col.html(element);
-                    $row.append($col);
-                    // debugger;
+                    $data.push(element);
                 }
             }
+            $data_table.unshift($data);
             // debugger;
+            // $data_table.push(layer.feature.properties);
         });
-        // debugger;
-        // $('#dataTable').DataTable({
-        //     data: $data_table,
-        //     columns: [{
-        //         title: "Full_Name"
-        //     }]
+        // table body
+
+        // layer_Notables_1.eachLayer(function(layer) {
+        //     // console.log(layer);
+
+        //     let $row = $('<tr>');
+        //     $table.append($row);
+
+        //     for (const key in $col_to_show) {
+        //         if (layer.feature.properties.hasOwnProperty($col_to_show[key])) {
+        //             const element = layer.feature.properties[$col_to_show[key]];
+        //             $col = $('<td>');
+        //             $col.html(element);
+        //             $row.append($col);
+        //             // debugger;
+        //         }
+        //     }
+        //     // debugger;
         // });
+        // debugger;
+        $('#dataTable').DataTable({
+            data: $data_table,
+            columns: [{
+                title: "Full_Name"
+            }, {
+                title: "Titles"
+            }, {
+                title: "Birth"
+            }, {
+                title: "Death"
+            }]
+        });
     </script>
 </body>
 
