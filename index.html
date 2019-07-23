@@ -60,9 +60,6 @@
             <div class="col">
                 <div id="">
                     <div class="card mb-3">
-                        <div class="card-header">
-                            <i class="fas fa-table"></i> Personalities
-                        </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -204,12 +201,13 @@
         });
         bounds_group.addLayer(layer_Notables_1);
         setBounds();
-        map.addControl(new L.Control.Search({
+        let search = new L.Control.Search({
             layer: layer_Notables_1,
             initial: false,
             hideMarkerOnCollapse: true,
             propertyName: 'Full_Name'
-        }));
+        });
+        map.addControl(search);
         var baseLayers = {
             "Bing": bingLayer,
             "OpenStreetMap": layer_OSMStandard_0
@@ -239,7 +237,7 @@
             // debugger;
             // $data_table.push(layer.feature.properties);
         });
-        $('#dataTable').DataTable({
+        var table = $('#dataTable').DataTable({
             data: $data_table,
             columns: [{
                 title: "Full_Name"
@@ -250,6 +248,14 @@
             }, {
                 title: "Death"
             }]
+        });
+        $('#dataTable tbody').on('click', 'tr', function() {
+            var data = table.row(this).data();
+            // alert('You clicked on ' + data[0] + '\'s row');
+            // console.log(data);
+            search._fillRecordsCache()
+            $loc = search._getLocation(data[0]);
+            search.showLocation($loc, data[0]);
         });
     </script>
 </body>
