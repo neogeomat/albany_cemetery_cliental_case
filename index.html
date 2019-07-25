@@ -42,7 +42,7 @@
     <style>
         #map {
             width: 100%;
-            height: 700px;
+            height: 600px;
         }
     </style>
     <title></title>
@@ -52,7 +52,7 @@
 
     <div>
         <div class='row'>
-            <div class="col">
+            <div class="col-8">
                 <span style="font-size: 60px;
                     text-shadow: -3px -3px 3px black;">Albany Rural </span><span style="color: brown; font-size: 60px;
                     text-shadow: -3px -3px 3px black;">Cemetery</span>
@@ -60,26 +60,22 @@
                 </div>
 
             </div>
-            <div class="col">
+            <div class="col-4">
                 <span style="font-size: 60px;
                     text-shadow: -3px -3px 3px black;">Search for </span><span style="color: brown; font-size: 60px;
                     text-shadow: -3px -3px 3px black;">Grave</span>
-                <div id="map">
-                    <div id="">
-                        <div class="card mb-3">
-                            <div class="card-header">
-                                <i class="fas fa-table"></i> Click the list to view in map
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr></tr>
-                                        </thead>
-                                        <tbody></tbody>
-                                    </table>
-                                </div>
-                            </div>
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fas fa-table"></i> Click the list to view in map
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr></tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -232,7 +228,7 @@
         <script>
             // $table = $('#sidebar table>tbody');
             $table = $('#dataTable');
-            $col_to_show = ['Full_Name', 'Titles', 'Birth', 'Death']
+            $col_to_show = ['Full_Name', 'Birth', 'Death']
 
             $data_table = [];
             layer_Notables_1.eachLayer(function(layer) {
@@ -251,8 +247,6 @@
                 data: $data_table,
                 columns: [{
                     title: "Full_Name"
-                }, {
-                    title: "Titles"
                 }, {
                     title: "Birth"
                 }, {
