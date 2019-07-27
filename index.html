@@ -76,9 +76,9 @@
                     text-shadow: -3px -3px 3px black;">Search for </span><span style="color: brown; font-size: 60px;
                     text-shadow: -3px -3px 3px black;">Grave</span>
                 <div class="card mb-3">
-                    <div class="card-header">
+                    <!-- <div class="card-header">
                         <i class="fas fa-table"></i> Click the list to view in map
-                    </div>
+                    </div> -->
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -92,6 +92,7 @@
                 </div>
             </div>
         </div>
+        <!-- <iframe src="https://www.google.com/maps/embed?pb=!4v1564128406600!6m8!1m7!1stxEy7qZUuLd08lRVj1qCnw!2m2!1d42.70544377507082!2d-73.73282308149905!3f322.23315604397925!4f-14.34653017062999!5f0.7820865974627469" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
 
         <script>
             var highlightLayer;
@@ -201,12 +202,20 @@
                 propertyName: 'Full_Name'
             });
             map.addControl(search);
+            var imageUrl = 'images/CemeteryOldMap-removebg-preview.png';
+            var imageBounds = [
+                [42.6964412, -73.7448263],
+                [42.7155047, -73.7230468]
+            ];
             var baseLayers = {
                 "Bing": bingLayer,
                 "OpenStreetMap": layer_OSMStandard_0
             };
+
+            var oldMap = L.imageOverlay(imageUrl, imageBounds).addTo(map);
             var overlays = {
-                "Marker": layer_Notables_1,
+                "Graves": layer_Notables_1,
+                "Oldmap": oldMap
             };
             L.control.layers(baseLayers, overlays).addTo(map);
             document.getElementsByClassName('search-button')[0].className +=
