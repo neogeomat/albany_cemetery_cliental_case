@@ -134,10 +134,12 @@
                 attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
             });
             layer_OSMStandard_0;
-            map.addLayer(layer_OSMStandard_0);
+            // map.addLayer(layer_OSMStandard_0);
 
             var BING_KEY = 'AuhiCJHlGzhg93IqUH_oCpl_-ZUrIE6SPftlyGYUvr9Amx5nzA-WqGcPquyFZl4L';
-            var bingLayer = L.tileLayer.bing(BING_KEY).addTo(map);
+            var bingLayer = L.tileLayer.bing(BING_KEY);
+
+            var empty_baseLayer = L.tileLayer('', {});
 
             function pop_Notables_1(feature, layer) {
                 layer.on({
@@ -207,12 +209,14 @@
                 [42.6964412, -73.7448263],
                 [42.7155047, -73.7230468]
             ];
+            var oldMap = L.imageOverlay(imageUrl, imageBounds).addTo(map);
             var baseLayers = {
                 "Bing": bingLayer,
-                "OpenStreetMap": layer_OSMStandard_0
+                "OpenStreetMap": layer_OSMStandard_0,
+                "No background": empty_baseLayer
             };
 
-            var oldMap = L.imageOverlay(imageUrl, imageBounds).addTo(map);
+
             var overlays = {
                 "Graves": layer_Notables_1,
                 "Oldmap": oldMap
