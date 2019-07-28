@@ -42,7 +42,7 @@
     <style>
         #map {
             width: 100%;
-            height: 600px;
+            height: 575px;
         }
         
         .info {
@@ -129,7 +129,7 @@
                         <img width="200 " height="200 " src=" ' + (feature.properties['PhotoURL'] !== null ? feature.properties['PhotoURL'] : ' ') + ' "></img>\
                     </td>\
                     <td>\
-                        <table>\
+                        <table class="table">\
                             <tr>\
                                 <td colspan="2 "><strong>Full_Name</strong><br />' + (feature.properties['Full_Name'] !== null ? Autolinker.link(String(feature.properties['Full_Name'])) : '') + '</td>\
                             </tr>\
@@ -325,7 +325,11 @@
                 title: "Birth "
             }, {
                 title: "Death "
-            }]
+            }],
+            "scrollY": "400px",
+            "scrollCollapse": true,
+            "paging": true,
+            "pagingType": "numbers"
         });
         $('#dataTable tbody').on('click', 'tr', function() {
             var data = table.row(this).data();
