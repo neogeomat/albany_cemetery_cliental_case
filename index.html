@@ -221,7 +221,9 @@
                 "Graves": layer_Notables_1,
                 "Oldmap": oldMap
             };
-            L.control.layers(baseLayers, overlays).addTo(map);
+            L.control.layers(baseLayers, overlays, {
+                collapsed: false
+            }).addTo(map);
             document.getElementsByClassName('search-button')[0].className +=
                 ' fa fa-binoculars';
         </script>
