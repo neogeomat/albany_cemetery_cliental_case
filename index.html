@@ -125,30 +125,39 @@
             if (feature) {
                 bio = '<table>\
                 <tr>\
-                    <td colspan="2 "><strong>Full_Name</strong><br />' + (feature.properties['Full_Name'] !== null ? Autolinker.link(String(feature.properties['Full_Name'])) : '') + '</td>\
-                </tr>\
-                <tr>\
-                    <td colspan="2 ">' + (feature.properties['Titles'] !== null ? Autolinker.link(String(feature.properties['Titles'])) : '') + '</td>\
-                </tr>\
-                <tr>\
-                    <th scope="row ">Birth</th>\
-                    <td>' + (feature.properties['Birth'] !== null ? Autolinker.link(String(feature.properties['Birth'])) : '') + '</td>\
-                </tr>\
-                <tr>\
-                    <th scope="row ">Death</th>\
-                    <td>' + (feature.properties['Death'] !== null ? Autolinker.link(String(feature.properties['Death'])) : '') + '</td>\
-                </tr>\
-                <tr>\
-                    <th scope="row ">PhotoURL</th>\
-                    <td><img width="200 " height="200 " src=" ' + (feature.properties['PhotoURL'] !== null ? feature.properties['PhotoURL'] : ' ') + ' "></img></td>\
-                </tr>\
-                <tr>\
-                    <th scope="row ">BioURL</th>\
-                    <td>' + (feature.properties['BioURL'] !== null ? Autolinker.link(String(feature.properties['BioURL'])) : '') + '</td>\
-                </tr>\
-                <tr>\
-                    <th scope="row ">Source</th>\
-                    <td colspan="2 ">' + (feature.properties['Source'] !== null ? Autolinker.link(String(feature.properties['Source'])) : '') + '</td>\
+                    <td>\
+                        <img width="200 " height="200 " src=" ' + (feature.properties['PhotoURL'] !== null ? feature.properties['PhotoURL'] : ' ') + ' "></img>\
+                    </td>\
+                    <td>\
+                        <table>\
+                            <tr>\
+                                <td colspan="2 "><strong>Full_Name</strong><br />' + (feature.properties['Full_Name'] !== null ? Autolinker.link(String(feature.properties['Full_Name'])) : '') + '</td>\
+                            </tr>\
+                            <tr>\
+                                <td colspan="2 ">' + (feature.properties['Titles'] !== null ? Autolinker.link(String(feature.properties['Titles'])) : '') + '</td>\
+                            </tr>\
+                            <tr>\
+                                <th scope="row ">Birth</th>\
+                                <td>' + (feature.properties['Birth'] !== null ? Autolinker.link(String(feature.properties['Birth'])) : '') + '</td>\
+                            </tr>\
+                            <tr>\
+                                <th scope="row ">Death</th>\
+                                <td>' + (feature.properties['Death'] !== null ? Autolinker.link(String(feature.properties['Death'])) : '') + '</td>\
+                            </tr>\
+                            <tr>\
+                                <th scope="row ">PhotoURL</th>\
+                                <td>' + (feature.properties['PhotoURL'] !== null ? Autolinker.link(String(feature.properties['PhotoURL'])) : '') + '</td>\
+                            </tr>\
+                            <tr>\
+                                <th scope="row ">BioURL</th>\
+                                <td>' + (feature.properties['BioURL'] !== null ? Autolinker.link(String(feature.properties['BioURL'])) : '') + '</td>\
+                            </tr>\
+                            <tr>\
+                                <th scope="row ">Source</th>\
+                                <td colspan="2 ">' + (feature.properties['Source'] !== null ? Autolinker.link(String(feature.properties['Source'])) : '') + '</td>\
+                            </tr>\
+                        </table>\
+                    </td>\
                 </tr>\
             </table>';
             } else {
