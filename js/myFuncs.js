@@ -45,27 +45,6 @@ var bio_table_generator = function(feature) {
     return bio;
 };
 
-function highlightFeature(e) {
-    highlightLayer = e.target;
-
-    b = L.DomUtil.get('bio');
-    b.innerHTML = bio_table_generator(highlightLayer.feature);
-    // debugger;
-
-    if (e.target.feature.geometry.type === 'LineString') {
-        highlightLayer.setStyle({
-            color: '#ffff00',
-        });
-    } else {
-        highlightLayer.setStyle({
-            fillColor: '#ffff00',
-            fillOpacity: 1
-        });
-    }
-    // // highlightLayer.openPopup();
-
-}
-
 function style_Notables_1_0(feature) {
     return {
         pane: 'pane_Notables_1',
@@ -83,18 +62,17 @@ function style_Notables_1_0(feature) {
 }
 
 function style_Notables_div_icon(feature) {
+
+    var myIcon = L.divIcon({
+        className: 'my-div-icon',
+        html: `<span style="color: brown; font-size: 12px;
+        text-shadow: -0px -0px 0px black;">${feature.properties.First_name}</span>`
+    });
+    var graveIcon = L.icon({
+        iconUrl: 'images/grave_24px.png'
+    });
     return {
-        pane: 'pane_Notables_1',
-        radius: 4.0,
-        opacity: 1,
-        color: getColor(feature),
-        dashArray: '',
-        lineCap: 'butt',
-        lineJoin: 'miter',
-        weight: 1,
-        fill: true,
-        fillOpacity: 1,
-        fillColor: 'rgba(141,90,153,1.0)',
+        icon: graveIcon
     }
 }
 
