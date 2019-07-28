@@ -70,11 +70,11 @@
             </div>
         </div>
         <div class='row'>
-            <div class="col-4">
+            <div class="col-sm-3 col-md-3">
                 <div id='info'></div>
-                <span style="font-size: 40px;
-                            text-shadow: -2px -2px 2px black;">Search for </span><span style="color: brown; font-size: 40px;
-                            text-shadow: -2px -2px 2px black;">Grave
+                <span style="font-size: 20px;text-shadow: -1px -1px 1px black;">Search for </span>
+                <span style="color: brown; font-size: 20px;
+                            text-shadow: -1px -1px 1px black;">Grave
                 </span>
                 <div class="card mb-3">
                     <!-- <div class="card-header">
@@ -93,17 +93,15 @@
                 </div>
             </div>
 
-            <div class="col-4">
-                <span style="font-size: 40px;
-                    text-shadow: -2px -2px 2px black;">View on </span><span style="color: brown; font-size: 40px;
-                    text-shadow: -2px -2px 2px black;">Map
-                </span>
+            <div class="col-sm-6 col-md-6">
+                <span style="font-size: 20px;text-shadow: -1px -1px 1px black;">View on </span>
+                <span style="color: brown; font-size: 20px;text-shadow: -1px -1px 1px black;">Map</span>
                 <div id="map" style="border: #ced4da 1px solid">
                 </div>
             </div>
-            <div class=" col-4 ">
-                <span style="font-size: 40px; text-shadow: -2px -2px 2px black; ">Click on map </span><span style="color: brown; font-size: 40px; text-shadow: -2px -2px 2px black; ">to see Info
-                </span>
+            <div class="col-sm-3 col-md-3">
+                <span style="font-size: 20px; text-shadow: -1px -1px 1px black; ">Click on map </span>
+                <span style="color: brown; font-size: 20px; text-shadow: -1px -1px 1px black; ">to see Info</span>
                 <div id="bio" style="border: #ced4da 1px solid">
                     If you want to find a particular person’s gravesite, type in the name and the list will update. <br> click on the list and the grave will be highlighted in the map and this section will show information on that grave. <br> You can
                     also hover over any point the map to see information.
@@ -123,43 +121,44 @@
         var bio_table_generator = function(feature) {
             // debugger;
             if (feature) {
-                bio = '<table>\
-                <tr>\
-                    <td>\
-                        <img width="200 " height="200 " src=" ' + (feature.properties['PhotoURL'] !== null ? feature.properties['PhotoURL'] : ' ') + ' "></img>\
-                    </td>\
-                    <td>\
-                        <table class="table">\
-                            <tr>\
-                                <td colspan="2 "><strong>Full_Name</strong><br />' + (feature.properties['Full_Name'] !== null ? Autolinker.link(String(feature.properties['Full_Name'])) : '') + '</td>\
-                            </tr>\
-                            <tr>\
-                                <td colspan="2 ">' + (feature.properties['Titles'] !== null ? Autolinker.link(String(feature.properties['Titles'])) : '') + '</td>\
-                            </tr>\
-                            <tr>\
-                                <th scope="row ">Birth</th>\
-                                <td>' + (feature.properties['Birth'] !== null ? Autolinker.link(String(feature.properties['Birth'])) : '') + '</td>\
-                            </tr>\
-                            <tr>\
-                                <th scope="row ">Death</th>\
-                                <td>' + (feature.properties['Death'] !== null ? Autolinker.link(String(feature.properties['Death'])) : '') + '</td>\
-                            </tr>\
-                            <tr>\
-                                <th scope="row ">PhotoURL</th>\
-                                <td>' + (feature.properties['PhotoURL'] !== null ? Autolinker.link(String(feature.properties['PhotoURL'])) : '') + '</td>\
-                            </tr>\
-                            <tr>\
-                                <th scope="row ">BioURL</th>\
-                                <td>' + (feature.properties['BioURL'] !== null ? Autolinker.link(String(feature.properties['BioURL'])) : '') + '</td>\
-                            </tr>\
-                            <tr>\
-                                <th scope="row ">Source</th>\
-                                <td colspan="2 ">' + (feature.properties['Source'] !== null ? Autolinker.link(String(feature.properties['Source'])) : '') + '</td>\
-                            </tr>\
-                        </table>\
-                    </td>\
-                </tr>\
-            </table>';
+                bio =
+                    '<div class="row">\
+                        <div class="col-sm-3 col-md-6">\
+                            <img width="200 " height="200 " src=" ' + (feature.properties['PhotoURL'] !== null ? feature.properties['PhotoURL'] : ' ') + ' "></img>\
+                        </div>\
+                    </div>\
+                    <div class="row">\
+                        <div class="col-sm-3 col-md-6">\
+                            <table class="table">\
+                                <tr>\
+                                    <td colspan="2 "><strong>Full_Name</strong><br />' + (feature.properties['Full_Name'] !== null ? Autolinker.link(String(feature.properties['Full_Name'])) : '') + '</td>\
+                                </tr>\
+                                <tr>\
+                                    <td colspan="2 ">' + (feature.properties['Titles'] !== null ? Autolinker.link(String(feature.properties['Titles'])) : '') + '</td>\
+                                </tr>\
+                                <tr>\
+                                    <th scope="row ">Birth</th>\
+                                    <td>' + (feature.properties['Birth'] !== null ? Autolinker.link(String(feature.properties['Birth'])) : '') + '</td>\
+                                </tr>\
+                                <tr>\
+                                    <th scope="row ">Death</th>\
+                                    <td>' + (feature.properties['Death'] !== null ? Autolinker.link(String(feature.properties['Death'])) : '') + '</td>\
+                                </tr>\
+                                <tr>\
+                                    <th scope="row ">PhotoURL</th>\
+                                    <td>' + (feature.properties['PhotoURL'] !== null ? Autolinker.link(String(feature.properties['PhotoURL'])) : '') + '</td>\
+                                </tr>\
+                                <tr>\
+                                    <th scope="row ">BioURL</th>\
+                                    <td>' + (feature.properties['BioURL'] !== null ? Autolinker.link(String(feature.properties['BioURL'])) : '') + '</td>\
+                                </tr>\
+                                <tr>\
+                                    <th scope="row ">Source</th>\
+                                    <td colspan="2 ">' + (feature.properties['Source'] !== null ? Autolinker.link(String(feature.properties['Source'])) : '') + '</td>\
+                                </tr>\
+                            </table>\
+                        </div>\
+                    </div>';
             } else {
                 bio = 'Move over one of the symbols';
             }
@@ -321,10 +320,6 @@
             data: $data_table,
             columns: [{
                 title: "Full_Name "
-            }, {
-                title: "Birth "
-            }, {
-                title: "Death "
             }],
             "scrollY": "400px",
             "scrollCollapse": true,
