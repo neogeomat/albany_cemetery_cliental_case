@@ -4,7 +4,12 @@ var bio_table_generator = function(feature) {
         bio =
             '<div class="row">\
                   <div class="col-sm-3 col-md-6">\
+                  Photo\
                       <img width="200 " height="200 " src=" ' + (feature.properties['PhotoURL'] !== null ? feature.properties['PhotoURL'] : ' ') + ' "></img>\
+                  </div>\
+                  <div class="col-sm-3 col-md-6">\
+                  Grave\
+                    <img width="200 " height="200 " src=" ' + (feature.properties['Gravel_url'] !== null ? feature.properties['Gravel_url'] : ' ') + ' "></img>\
                   </div>\
               </div>\
               <div class="row">\
