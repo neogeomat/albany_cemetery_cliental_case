@@ -146,17 +146,19 @@
     }
 
     var map = L.map('map', {
-        zoomControl: true,
-        maxZoom: 28,
-        minZoom: 1
-    })
-    var hash = new L.Hash(map);
+            zoomControl: true,
+            maxZoom: 28,
+            minZoom: 1,
+            center: [42.7087, -73.7318], //15/42.7087/-73.7318
+            zoom: 15
+        })
+        // var hash = new L.Hash(map);
     map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web " target="_blank ">qgis2web</a> &middot; <a href="http://leafletjs.com " title="A JS library for interactive maps ">Leaflet</a>');
     var bounds_group = new L.featureGroup([]);
 
     function setBounds() {
         if (bounds_group.getLayers().length) {
-            map.fitBounds(bounds_group.getBounds());
+            // map.fitBounds(bounds_group.getBounds());
         }
     }
     var layer_OSMStandard_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
