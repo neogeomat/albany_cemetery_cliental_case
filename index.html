@@ -39,6 +39,7 @@
 
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise"></script>
     <script src="js/leaflet-bing-layer.min.js"></script>
+    <script src="js/leaflet-timeline-slider.js"></script>
     <style>
         #map {
             width: 100%;
@@ -132,16 +133,16 @@
         b.innerHTML = bio_table_generator(highlightLayer.feature);
         // debugger;
 
-        if (e.target.feature.geometry.type === 'LineString') {
-            highlightLayer.setStyle({
-                color: '#ffff00',
-            });
-        } else {
-            highlightLayer.setStyle({
-                fillColor: '#ffff00',
-                fillOpacity: 1
-            });
-        }
+        // if (e.target.feature.geometry.type === 'LineString') {
+        //     highlightLayer.setStyle({
+        //         color: '#ffff00',
+        //     });
+        // } else {
+        //     highlightLayer.setStyle({
+        //         fillColor: '#ffff00',
+        //         fillOpacity: 1
+        //     });
+        // }
     }
 
     var map = L.map('map', {
@@ -321,6 +322,73 @@
     //     "paging": true,
     //     "pagingType": "numbers"
     // });
+</script>
+<script>
+    function changeMapFunction({
+        label,
+        value,
+        map,
+        exclamation
+    }) {
+        switch (value) {
+            case '1':
+                var y = 1700;
+                layer_Notables_1.eachLayer(function(layer) {
+                    if (layer.feature.properties.Year < y) {
+                        layer.setIcon(L.divIcon({
+                            html: layer.feature.properties.Year,
+                            className: "show"
+                        }));
+                    } else {
+                        layer.setIcon(L.divIcon({
+                            html: "",
+                            className: "hide"
+                        }));
+                    }
+                });
+                break;
+            case '2':
+                var y = 1900;
+                layer_Notables_1.eachLayer(function(layer) {
+                    if (layer.feature.properties.Year < y) {
+                        layer.setIcon(L.divIcon({
+                            html: layer.feature.properties.Year,
+                            className: "show"
+                        }));
+                    } else {
+                        layer.setIcon(L.divIcon({
+                            html: "",
+                            className: "hide"
+                        }));
+                    }
+                });
+                break;
+            case '3':
+                var y = 1900;
+                layer_Notables_1.eachLayer(function(layer) {
+                    if (layer.feature.properties.Year >= y) {
+                        layer.setIcon(L.divIcon({
+                            html: layer.feature.properties.Year,
+                            className: "show"
+                        }))
+                    } else {
+                        layer.setIcon(L.divIcon({
+                            html: "",
+                            className: "hide"
+                        }))
+                    }
+                });
+                break;
+        }
+    }
+    L.control.timelineSlider({
+        timelineItems: ["17th Century", "17 - 19 th Century", "After 19th Century"],
+        extraChangeMapParams: {
+            greeting: "Hello World!"
+        },
+        // initializeChange: false,
+        changeMap: changeMapFunction
+    }).addTo(map);
 </script>
 
 </html>
