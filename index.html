@@ -364,9 +364,9 @@
                 });
                 break;
             case '3':
-                var y = 1900;
+                var y = 2100;
                 layer_Notables_1.eachLayer(function(layer) {
-                    if (layer.feature.properties.Year >= y) {
+                    if (layer.feature.properties.Year < y) {
                         layer.setIcon(L.divIcon({
                             html: layer.feature.properties.Year,
                             className: "show"
@@ -382,11 +382,11 @@
         }
     }
     L.control.timelineSlider({
-        timelineItems: ["17th Century", "17 - 19 th Century", "After 19th Century"],
+        timelineItems: ["17th Century", "19th Century", "21st Century"],
         extraChangeMapParams: {
             greeting: "Hello World!"
         },
-        // initializeChange: false,
+        initializeChange: false,
         changeMap: changeMapFunction
     }).addTo(map);
 </script>
