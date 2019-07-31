@@ -260,6 +260,7 @@
         columns: [{
             title: "Full_Name"
         }],
+        dom: 'f<t>p',
         "columnDefs": [{
             // The `data` parameter refers to the data for the cell (defined by the
             // `data` option, which defaults to the column being worked with, in
@@ -291,35 +292,35 @@
         b = L.DomUtil.get('bio');
         b.innerHTML = bio_table_generator(s.layer.feature);
     });
-    var maintable = $('#mainTable').DataTable({
-        data: $data_table,
-        columns: [{
-            title: "Full_Name"
-        }, {
-            title: "Birth"
-        }, {
-            title: "Death"
-        }],
-        // "columnDefs": [{
-        //     // The `data` parameter refers to the data for the cell (defined by the
-        //     // `data` option, which defaults to the column being worked with, in
-        //     // this case `data: 0`.
-        //     "render": function(data, type, row) {
-        //         // debugger;
-        //         birth = typeof(row[1]) == "string" ? row[1].substr(0, 4) : "Unknown";
-        //         death = typeof(row[2]) == "string" ? row[2].substr(0, 4) : "Unknown";
-        //         return data + ' (' + birth + '-' + death + ')';
-        //     },
-        //     "targets": 0
-        // }, {
-        //     "visible": false,
-        //     "targets": [1]
-        // }],
-        "scrollY": "400px",
-        "scrollCollapse": true,
-        "paging": true,
-        "pagingType": "numbers"
-    });
+    // var maintable = $('#mainTable').DataTable({
+    //     data: $data_table,
+    //     columns: [{
+    //         title: "Full_Name"
+    //     }, {
+    //         title: "Birth"
+    //     }, {
+    //         title: "Death"
+    //     }],
+    //     // "columnDefs": [{
+    //     //     // The `data` parameter refers to the data for the cell (defined by the
+    //     //     // `data` option, which defaults to the column being worked with, in
+    //     //     // this case `data: 0`.
+    //     //     "render": function(data, type, row) {
+    //     //         // debugger;
+    //     //         birth = typeof(row[1]) == "string" ? row[1].substr(0, 4) : "Unknown";
+    //     //         death = typeof(row[2]) == "string" ? row[2].substr(0, 4) : "Unknown";
+    //     //         return data + ' (' + birth + '-' + death + ')';
+    //     //     },
+    //     //     "targets": 0
+    //     // }, {
+    //     //     "visible": false,
+    //     //     "targets": [1]
+    //     // }],
+    //     "scrollY": "400px",
+    //     "scrollCollapse": true,
+    //     "paging": true,
+    //     "pagingType": "numbers"
+    // });
 </script>
 
 </html>
