@@ -10,6 +10,7 @@ var bio_table_generator = function(feature) {
                   <div class="col-sm-3 col-md-6">\
                   Grave\
                     <img width="200 " height="200 " src=" ' + (feature.properties['Gravel_url'] !== null ? feature.properties['Gravel_url'] : ' ') + ' "></img>\
+                    <a href="hassan/index.html">Request Services</a>\
                   </div>\
               </div>\
               <div class="row">\
@@ -37,6 +38,12 @@ var bio_table_generator = function(feature) {
                               <th scope="row ">Source</th>\
                               <td colspan="2 ">' + (feature.properties['Source'] !== null ? Autolinker.link(String(feature.properties['Source'])) : '') + '</td>\
                           </tr>\
+                          <tr>\
+                            <th>\
+                            </th>\
+                            <td>\
+                            </td>\
+                        </tr>\
                       </table>\
                   </div>\
               </div>';
