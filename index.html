@@ -83,10 +83,6 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr></tr>
-                                </thead>
-                                <tbody></tbody>
                             </table>
                         </div>
                     </div>
@@ -113,8 +109,11 @@
             </div>
         </div>
         <div class='row'>
-            <div class="col "></div>
-            <div class="col "></div>
+            <div class="col ">
+                <div class="table-responsive"></div>
+                <table class="table table-bordered" id="mainTable" width="100%" cellspacing="0"></table>
+            </div>
+            <!-- <div class="col "></div> -->
         </div>
     </div>
     <!-- <iframe src="https://www.google.com/maps/embed?pb=!4v1564128406600!6m8!1m7!1stxEy7qZUuLd08lRVj1qCnw!2m2!1d42.70544377507082!2d-73.73282308149905!3f322.23315604397925!4f-14.34653017062999!5f0.7820865974627469 " width="600 " height="450
@@ -259,7 +258,7 @@
     var table = $('#dataTable').DataTable({
         data: $data_table,
         columns: [{
-            title: "Full_Name "
+            title: "Full_Name"
         }],
         "columnDefs": [{
             // The `data` parameter refers to the data for the cell (defined by the
@@ -291,6 +290,35 @@
         let s = search._recordsFromLayer()[data[0]];
         b = L.DomUtil.get('bio');
         b.innerHTML = bio_table_generator(s.layer.feature);
+    });
+    var maintable = $('#mainTable').DataTable({
+        data: $data_table,
+        columns: [{
+            title: "Full_Name"
+        }, {
+            title: "Birth"
+        }, {
+            title: "Death"
+        }],
+        // "columnDefs": [{
+        //     // The `data` parameter refers to the data for the cell (defined by the
+        //     // `data` option, which defaults to the column being worked with, in
+        //     // this case `data: 0`.
+        //     "render": function(data, type, row) {
+        //         // debugger;
+        //         birth = typeof(row[1]) == "string" ? row[1].substr(0, 4) : "Unknown";
+        //         death = typeof(row[2]) == "string" ? row[2].substr(0, 4) : "Unknown";
+        //         return data + ' (' + birth + '-' + death + ')';
+        //     },
+        //     "targets": 0
+        // }, {
+        //     "visible": false,
+        //     "targets": [1]
+        // }],
+        "scrollY": "400px",
+        "scrollCollapse": true,
+        "paging": true,
+        "pagingType": "numbers"
     });
 </script>
 
