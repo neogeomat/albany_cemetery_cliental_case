@@ -65,15 +65,18 @@
         <div class='row'>
             <div class="col-12">
                 <span style="font-size: 40px;
-                text-shadow: -2px -2px 2px black;">Albany Rural </span><span style="color: brown; font-size: 40px;
-                text-shadow: -2px -2px 2px black;">Cemetery
+                text-shadow: -2px -2px 2px black;">Albany Rural </span><span style="
+                color: #0070b6;
+                font-size: 40px;
+                text-shadow: -2px -2px 2px #0070b6; ">Cemetery
                 </span>
             </div>
         </div>
+        <br>
         <div class='row'>
             <div class="col-sm-3 col-md-3">
                 <div id='info'></div>
-                <span style="font-size: 20px;text-shadow: -1px -1px 1px black;">Search for </span>
+                <span style="font-size: 20px;color: #0070b6;text-shadow: -1px -1px 1px #0070b6;">Search for </span>
                 <span style="color: brown; font-size: 20px;
                             text-shadow: -1px -1px 1px black;">Grave
                 </span>
@@ -91,13 +94,13 @@
             </div>
 
             <div class="col-sm-6 col-md-6">
-                <span style="font-size: 20px;text-shadow: -1px -1px 1px black;">View on </span>
+                <span style="font-size: 20px;color: #0070b6;text-shadow: -1px -1px 1px #0070b6;">View on </span>
                 <span style="color: brown; font-size: 20px;text-shadow: -1px -1px 1px black;">Map</span>
                 <div id="map" style="border: #ced4da 1px solid">
                 </div>
             </div>
             <div class="col-sm-3 col-md-3">
-                <span style="font-size: 20px; text-shadow: -1px -1px 1px black; ">Click on map </span>
+                <span style="font-size: 20px;color: #0070b6;text-shadow: -1px -1px 1px #0070b6;">Click on map </span>
                 <span style="color: brown; font-size: 20px; text-shadow: -1px -1px 1px black; ">to see Info</span>
                 <div id="bio" style="border: #ced4da 1px solid">
                     <img src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F9%2F94%2FAlbany_Rural_Cemetery_16.jpg&sp=553de59a2ab49dc7fc9ce451734e9814" alt="Albany Rural Cemetery" width="100%" height="100%">
@@ -335,9 +338,8 @@
                 var y = 1700;
                 layer_Notables_1.eachLayer(function(layer) {
                     if (layer.feature.properties.Year < y) {
-                        layer.setIcon(L.divIcon({
-                            html: layer.feature.properties.Year,
-                            className: "show"
+                        layer.setIcon(L.icon({
+                            iconUrl: 'images/graveyard_32px.png'
                         }));
                     } else {
                         layer.setIcon(L.divIcon({
@@ -348,12 +350,17 @@
                 });
                 break;
             case '2':
-                var y = 1900;
+                var y1 = 1700;
+                var y2 = 1900;
                 layer_Notables_1.eachLayer(function(layer) {
-                    if (layer.feature.properties.Year < y) {
-                        layer.setIcon(L.divIcon({
-                            html: layer.feature.properties.Year,
-                            className: "show"
+                    if (layer.feature.properties.Year < y1) {
+                        layer.setIcon(L.icon({
+                            iconUrl: 'images/graveyard_32px.png'
+                        }));
+                    } else
+                    if (layer.feature.properties.Year < y2) {
+                        layer.setIcon(L.icon({
+                            iconUrl: 'images/graveyard_24px.png'
                         }));
                     } else {
                         layer.setIcon(L.divIcon({
@@ -364,13 +371,24 @@
                 });
                 break;
             case '3':
-                var y = 2100;
+                var y1 = 1700;
+                var y2 = 1900;
+                var y3 = 2100;
                 layer_Notables_1.eachLayer(function(layer) {
-                    if (layer.feature.properties.Year < y) {
-                        layer.setIcon(L.divIcon({
-                            html: layer.feature.properties.Year,
-                            className: "show"
-                        }))
+                    if (layer.feature.properties.Year < y1) {
+                        layer.setIcon(L.icon({
+                            iconUrl: 'images/graveyard_32px.png'
+                        }));
+                    } else
+                    if (layer.feature.properties.Year < y2) {
+                        layer.setIcon(L.icon({
+                            iconUrl: 'images/graveyard_24px.png'
+                        }));
+                    } else
+                    if (layer.feature.properties.Year < y3) {
+                        layer.setIcon(L.icon({
+                            iconUrl: 'images/grave(1)_24px.png'
+                        }));
                     } else {
                         layer.setIcon(L.divIcon({
                             html: "",
