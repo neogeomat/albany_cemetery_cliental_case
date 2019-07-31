@@ -30,10 +30,6 @@ var bio_table_generator = function(feature) {
                               <td>' + (feature.properties['Death'] !== null ? Autolinker.link(String(feature.properties['Death'])) : '') + '</td>\
                           </tr>\
                           <tr>\
-                              <th scope="row ">PhotoURL</th>\
-                              <td>' + (feature.properties['PhotoURL'] !== null ? Autolinker.link(String(feature.properties['PhotoURL'])) : '') + '</td>\
-                          </tr>\
-                          <tr>\
                               <th scope="row ">BioURL</th>\
                               <td>' + (feature.properties['BioURL'] !== null ? Autolinker.link(String(feature.properties['BioURL'])) : '') + '</td>\
                           </tr>\
