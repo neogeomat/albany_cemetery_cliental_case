@@ -217,7 +217,9 @@
         [42.6947488, -73.7457503],
         [42.7174971, -73.7212940]
     ];
-    var oldMap = L.imageOverlay(imageUrl, imageBounds)
+    var oldMap = L.imageOverlay(imageUrl, imageBounds, {
+        opacity: 0.5
+    });
     oldMap.addTo(map);
     var baseLayers = {
         "Bing ": bingLayer,
